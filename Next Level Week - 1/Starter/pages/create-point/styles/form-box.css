@@ -57,6 +57,7 @@ select {
 #form-box label {
   font-size: 14px;
   margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 #form-box .field-group .field + .field {
