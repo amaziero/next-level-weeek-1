@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../../global/main.css" />
     <link rel="stylesheet" href="./styles/create-point.css" />
     <link rel="stylesheet" href="./styles/form-box.css" />
+    <link rel="stylesheet" href="./styles/items-grid.css" />
 
     <link rel="stylesheet" href="../styles/responsive.css" />
   </head>
@@ -66,7 +67,9 @@
         </fieldset>
 
         <fieldset>
-          <legend><h2>Itens de coleta</h2></legend>
+          <legend>
+            <h2>Itens de coleta</h2>
+          </legend>
 
           <div class="items-grid">
             <li data-id="1">
@@ -79,7 +82,7 @@
               <span>Pinhas e Baterias</span>
             </li>
 
-            <li data-id="3">
+            <li data-id="3" class="selected">
               <img
                 src="../../assets/papeis-papelao.svg"
                 alt="Papeis e Papelão"
@@ -110,6 +113,7 @@
         <button type="submit">Cadastrar ponto de coleta</button>
       </form>
     </div>
+
     <script src="../../scripts/create-point.js"></script>
   </body>
 </html>
