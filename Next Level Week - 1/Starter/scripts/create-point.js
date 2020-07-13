@@ -18,9 +18,22 @@ populateUFs();
 
 function getCities(event) {
   const citySelect = document.querySelector("select[name=city]");
+  const stateInput = document.querySelector("input[name=state]");
+  const cityInput = document.querySelector("input[name=cities]");
+
+  const indexOfSelectedState = event.target.selectedIndex;
+  stateInput.value = event.target.options[indexOfSelectedState].text;
+
+  const indexOfSelectedCity = event.target.selectedIndex;
+  cityInput.value =
+    event.target.options[{ indexOfSelectedState, indexOfSelectedCity }];
+
   const url = `
       https://servicodados.ibge.gov.br/api/v1/localidades/estados/${event.target.value}/microrregioes
     `;
+
+  citySelect.innerHTML = "<option value>Selecione a cidade</option>";
+  citySelect.disabled = true;
 
   fetch(url)
     .then((response) => {
@@ -29,7 +42,7 @@ function getCities(event) {
     .then((cities) => {
       for (const city of cities) {
         citySelect.innerHTML += `
-          <option value="${city.id}" >${city.nome}</option>
+          <option value="${city.nome}" >${city.nome}</option>
         `;
       }
 
