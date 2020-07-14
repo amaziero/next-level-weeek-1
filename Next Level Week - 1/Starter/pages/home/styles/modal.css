@@ -16,6 +16,7 @@
 
 #modal.hide {
   display: none;
+  transition: 400ms;
 }
 
 #modal .content {
