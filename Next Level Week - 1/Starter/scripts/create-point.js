@@ -51,3 +51,37 @@ function getCities(event) {
 }
 
 document.querySelector("select[name=uf]").addEventListener("change", getCities);
+
+const itemsToCollect = document.querySelectorAll(".items-grid li");
+
+for (const item of itemsToCollect) {
+  item.addEventListener("click", handleSelectedItem);
+}
+
+const colletedItems = document.querySelector("input[name=items]");
+
+let selectedItems = [];
+
+function handleSelectedItem(event) {
+  const itemLi = event.target;
+  const itemId = itemLi.dataset.id;
+
+  itemLi.classList.toggle("selected");
+
+  const alreadySelected = selectedItems.findIndex((item) => {
+    return item == itemId;
+  });
+
+  if (alreadySelected >= 0) {
+    const filteredItems = selectedItems.filter((item) => {
+      const itemsIsDifferent = item != itemId;
+      return itemsIsDifferent;
+    });
+
+    selectedItems = filteredItems;
+  } else {
+    selectedItems.push(itemId);
+  }
+
+  colletedItems.value = selectedItems;
+}

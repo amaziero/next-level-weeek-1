@@ -42,3 +42,8 @@ fieldset .items-grid li.selected {
 fieldset .items-grid li.selected:hover {
   background-color: #e1faf9;
 }
+
+fieldset .items-grid img,
+fieldset .items-grid span {
+  pointer-events: none;
+}
