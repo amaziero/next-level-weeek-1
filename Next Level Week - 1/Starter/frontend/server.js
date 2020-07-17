@@ -1,19 +1,25 @@
 const express = require("express");
 const server = express();
+const nunjucks = require("nunjucks");
 
 server.use("/public", express.static("public"));
 server.use("/scripts", express.static("scripts"));
 
+nunjucks.configure("pages", {
+  express: server,
+  noCache: true,
+});
+
 server.get("/", (request, response) => {
-  response.sendFile(__dirname + "/pages/index.html");
+  return response.render("index.html");
 });
 
 server.get("/create-point", (request, response) => {
-  response.sendFile(__dirname + "/pages/create-point.html");
+  return response.render("create-point.html");
 });
 
 server.get("/search-results", (request, response) => {
-  response.sendFile(__dirname + "/pages/search-results.html");
+  response.render("search-results.html");
 });
 
 server.listen(3000);
