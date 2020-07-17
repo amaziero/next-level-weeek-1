@@ -78,6 +78,7 @@
 
 #page-home main a:hover {
   background-color: #2fb86e;
+  cursor: pointer;
 }
 
 #page-home main a span {
