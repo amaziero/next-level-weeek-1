@@ -1,51 +1,42 @@
-<!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="pt_br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resultado da Pesquisa</title>
+{% extends "partials/layout.html" %}
+{% set pageId = "page-search-results" %}
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&display=swap"
-      rel="stylesheet"
-    />
+{% block title %}
+  <title>Resultado da Pesquisa</title>
+{% endblock title %}
 
-    <link rel="stylesheet" href="../public/global/main.css" />
-    <link rel="stylesheet" href="../public/styles/search-results.css" />
+{% block styles %}
+  <link rel="stylesheet" href="../public/styles/search-results.css"/>
+{% endblock styles %}
 
-    <link rel="stylesheet" href="../public/styles/responsive.css" />
-  </head>
-  <body>
-    <div id="page-search-results">
-      {% include "partials/page-header.html" %}
+{% block content %}
+  {% include "partials/page-header.html" %}
+  <main>
+    <h4>
+      <strong>2 pontos</strong>encontrados</h4>
 
-      <main>
-        <h4><strong>2 pontos</strong> encontrados</h4>
-
-        <div class="cards">
-          <div class="card">
-            <img src="../public/assets/eletronicos.svg" alt="Colectoria" />
-            <h1>Colectoria</h1>
-            <h3>Residuoes eletronicos, Lampadas</h3>
-            <p>
-              Rio do Sul, Santa Catarina<br />
-              Guilherme Gemballa, Jadim América<br />
-              N° 3<br />
-            </p>
-          </div>
-          <div class="card">
-            <img src="../public/assets/papeis-papelao.svg" alt="Papersider" />
-            <h1>Papersider</h1>
-            <h3>Papéis e Papelão</h3>
-            <p>
-              Rio do Sul, Santa Catarina<br />
-              Guilherme Gemballa, Jadim América<br />
-              N° 3<br />
-            </p>
-          </div>
-        </div>
-      </main>
+    <div class="cards">
+      <div class="card">
+        <img src="../public/assets/eletronicos.svg" alt="Colectoria"/>
+        <h1>Colectoria</h1>
+        <h3>Residuoes eletronicos, Lampadas</h3>
+        <p>
+          Rio do Sul, Santa Catarina<br/>
+          Guilherme Gemballa, Jadim América<br/>
+          N° 3<br/>
+        </p>
+      </div>
+      <div class="card">
+        <img src="../public/assets/papeis-papelao.svg" alt="Papersider"/>
+        <h1>Papersider</h1>
+        <h3>Papéis e Papelão</h3>
+        <p>
+          Rio do Sul, Santa Catarina<br/>
+          Guilherme Gemballa, Jadim América<br/>
+          N° 3<br/>
+        </p>
+      </div>
     </div>
-  </body>
-</html>
+  </main>
+
+{% endblock content %}
