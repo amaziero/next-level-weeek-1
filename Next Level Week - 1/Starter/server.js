@@ -52,11 +52,14 @@ server.post("/savepoint", (request, response) => {
 server.get("/search-results", (request, response) => {
   const search = request.query.search;
 
-  if ((search = "")) {
+  if (search == "") {
     return response.render("search-results.html", { total: 0 });
   }
 
-  db.all(`SELECT * FROM places`, function (error, rows) {
+  db.all(`SELECT * FROM places WHERE city = '${search}'`, function (
+    error,
+    rows
+  ) {
     if (error) {
       return console.error(error);
     }
