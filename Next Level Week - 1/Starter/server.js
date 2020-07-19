@@ -2,6 +2,8 @@ const express = require("express");
 const server = express();
 const nunjucks = require("nunjucks");
 
+const db = require("./database/db");
+
 server.use("/public", express.static("public"));
 server.use("/scripts", express.static("scripts"));
 
