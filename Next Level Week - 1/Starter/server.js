@@ -56,7 +56,7 @@ server.get("/search-results", (request, response) => {
     return response.render("search-results.html", { total: 0 });
   }
 
-  db.all(`SELECT * FROM places WHERE city = '${search}'`, function (
+  db.all(`SELECT * FROM places WHERE city LIKE '%${search}%'`, function (
     error,
     rows
   ) {
