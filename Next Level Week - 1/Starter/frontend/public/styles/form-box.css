@@ -19,10 +19,21 @@
 
 #form-box legend {
   margin-bottom: 40px;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
 }
 
 #form-box legend h2 {
   font-size: 24px;
+}
+
+#form-box legend span {
+  color: var(--title-color);
+  font-size: 14px;
 }
 
 #form-box .field {
