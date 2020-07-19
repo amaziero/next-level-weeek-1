@@ -26,7 +26,8 @@ server.get("/search-results", (request, response) => {
       return console.error(error);
     }
 
-    return response.render("search-results.html", { places: rows });
+    const total = rows.length;
+    return response.render("search-results.html", { places: rows, total });
   });
 });
 
