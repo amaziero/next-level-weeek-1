@@ -33,7 +33,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 300px) {
   #page-home {
     background-position-x: 70vw;
   }
@@ -72,8 +72,7 @@
   }
 
   #page-create-point fieldset .items-grid {
-    width: 550px;
-    height: 350px;
+    max-width: 350px;
   }
 }
 
