@@ -21,7 +21,13 @@ server.get("/create-point", (request, response) => {
 });
 
 server.get("/search-results", (request, response) => {
-  response.render("search-results.html");
+  db.all(`SELECT * FROM places`, function (error, rows) {
+    if (error) {
+      return console.error(error);
+    }
+
+    return response.render("search-results.html", { places: rows });
+  });
 });
 
 server.listen(3000);

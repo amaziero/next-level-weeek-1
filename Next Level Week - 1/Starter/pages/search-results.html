@@ -16,26 +16,21 @@
       <strong>2 pontos</strong>encontrados</h4>
 
     <div class="cards">
-      <div class="card">
-        <img src="../public/assets/eletronicos.svg" alt="Colectoria"/>
-        <h1>Colectoria</h1>
-        <h3>Residuoes eletronicos, Lampadas</h3>
-        <p>
-          Rio do Sul, Santa Catarina<br/>
-          Guilherme Gemballa, Jadim América<br/>
-          N° 3<br/>
-        </p>
-      </div>
-      <div class="card">
-        <img src="../public/assets/papeis-papelao.svg" alt="Papersider"/>
-        <h1>Papersider</h1>
-        <h3>Papéis e Papelão</h3>
-        <p>
-          Rio do Sul, Santa Catarina<br/>
-          Guilherme Gemballa, Jadim América<br/>
-          N° 3<br/>
-        </p>
-      </div>
+
+      {% for place in places %}
+        <div class="card">
+          <img src="{{ place.image }}" alt="{{ place.name }}"/>
+          <h1>{{ place.name }}</h1>
+          <h3>{{ place.items }}</h3>
+          <p>
+            {{ place.city }},
+            {{ place.state }}<br/>
+            {{ place.adress }}<br/>
+            {{ place.adress2 }}<br/>
+          </p>
+        </div>
+      {% endfor %}
+
     </div>
   </main>
 
