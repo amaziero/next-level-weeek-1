@@ -1,3 +1,8 @@
+#page-teacher-list {
+  width: 100vw;
+  height: 100vh;
+}
+
 #search-teachers {
   margin-top: 3.2rem;
 }
