@@ -6,7 +6,7 @@ import "./styles.css";
 function TeacherList() {
   return (
     <div id="page-teacher-list" className="contanier">
-      <PageHeader />
+      <PageHeader title="Esses são os proffys disponiveis" />
     </div>
   );
 }
