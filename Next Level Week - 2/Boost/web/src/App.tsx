@@ -1,11 +1,10 @@
 import React from "react";
 
+import Landing from "./pages/landing";
+
+import "../src/assets/styles/global.css";
 function App() {
-  return (
-    <div className="App">
-      <h1>Hello Word</h1>
-    </div>
-  );
+  return <Landing />;
 }
 
 export default App;
