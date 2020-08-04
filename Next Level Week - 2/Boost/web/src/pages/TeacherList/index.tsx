@@ -1,13 +1,13 @@
 import React from "react";
-import "../../assets/styles/global.css";
 import PageHeader from "../../components/PageHeader";
+import "../../assets/styles/global.css";
 import "./styles.css";
 
 function TeacherList() {
   return (
     <div id="page-teacher-list" className="contanier">
       <PageHeader title="Esses são os proffys disponiveis">
-        <form id="search-teacher">
+        <form id="search-teachers">
           <div className="input-block">
             <label htmlFor="subject">Matéria</label>
             <input type="text" id="subject" />
