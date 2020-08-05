@@ -1,5 +1,6 @@
 import Knex from "knex";
 
+// esta tabela cria professores, e nao alunos
 export async function up(knex: Knex) {
   return knex.schema.createTable("users", (table) => {
     table.increments("id").primary();
