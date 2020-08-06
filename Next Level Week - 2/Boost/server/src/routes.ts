@@ -14,35 +14,47 @@ interface ScheduleItemProps {
 routes.post("/classes", async (request, response) => {
   const { name, avatar, whatsapp, bio, subject, cost, schedule } = request.body;
 
-  const insertedUsersIds = await db("users").insert({
-    name,
-    avatar,
-    whatsapp,
-    bio,
-  });
+  const classTransaction = await db.transaction();
 
-  const user_id = insertedUsersIds[0];
+  try {
+    const insertedUsersIds = await classTransaction("users").insert({
+      name,
+      avatar,
+      whatsapp,
+      bio,
+    });
 
-  const insertedClassesId = await db("classes").insert({
-    subject,
-    cost,
-    user_id,
-  });
+    const user_id = insertedUsersIds[0];
 
-  const class_id = insertedClassesId[0];
+    const insertedClassesId = await classTransaction("classes").insert({
+      subject,
+      cost,
+      user_id,
+    });
 
-  const classSchedule = schedule.map((schduleItem: ScheduleItemProps) => {
-    return {
-      class_id,
-      week_day: schduleItem.week_day,
-      from: convertHoursToMinutes(schduleItem.from),
-      to: convertHoursToMinutes(schduleItem.to),
-    };
-  });
+    const class_id = insertedClassesId[0];
 
-  await db("class_schedule").insert(classSchedule);
+    const classSchedule = schedule.map((schduleItem: ScheduleItemProps) => {
+      return {
+        class_id,
+        week_day: schduleItem.week_day,
+        from: convertHoursToMinutes(schduleItem.from),
+        to: convertHoursToMinutes(schduleItem.to),
+      };
+    });
 
-  return response.send();
+    await classTransaction("class_schedule").insert(classSchedule);
+
+    await classTransaction.commit();
+
+    return response.status(201).send();
+  } catch (err) {
+    await classTransaction.rollback();
+
+    return response.status(400).json({
+      error: "Unexpected error while creating new class",
+    });
+  }
 });
 
 export default routes;
