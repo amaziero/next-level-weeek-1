@@ -9,6 +9,24 @@ interface ScheduleItemProps {
 }
 
 export default class ClassesController {
+  async index(request: Request, response: Response) {
+    const filters = request.query;
+
+    const week_day = filters.week_day as string;
+    const subject = filters.subject as string;
+    const time = filters.time as string;
+
+    if (!week_day || !subject || !time)
+      return response.status(400).json({
+        error: "missing filters",
+      });
+
+    const timeInMinutes = convertHoursToMinutes(time);
+    const classes = await db("classes").where("classes.subject", "=", subject);
+
+    return response.json(classes);
+  }
+
   async create(request: Request, response: Response) {
     const {
       name,

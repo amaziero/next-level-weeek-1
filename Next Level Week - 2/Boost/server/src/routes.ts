@@ -7,5 +7,6 @@ routes.use(express.json());
 const classesControler = new ClassesController();
 
 routes.post("/classes", classesControler.create);
+routes.get("/classes", classesControler.index);
 
 export default routes;
