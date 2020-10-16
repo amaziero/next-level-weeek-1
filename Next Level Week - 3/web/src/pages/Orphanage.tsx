@@ -1,26 +1,12 @@
 import React from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { FiClock, FiInfo, FiArrowLeft } from 'react-icons/fi';
+import { FiClock, FiInfo } from 'react-icons/fi';
 import { Map, Marker, TileLayer } from 'react-leaflet';
-import { useHistory } from 'react-router-dom';
-import L from 'leaflet';
-
-import mapMarkerImg from '../images/map-marker.svg';
-
 import '../styles/pages/orphanage.css';
 import SideBar from '../components/SideBar';
-
-const happyMapIcon = L.icon({
-  iconUrl: mapMarkerImg,
-
-  iconSize: [58, 68],
-  iconAnchor: [29, 68],
-  popupAnchor: [0, -60],
-});
+import mapIcon from '../utils/mapIcon';
 
 export default function Orphanage() {
-  const { goBack } = useHistory();
-
   return (
     <div id="page-orphanage">
       <SideBar />
@@ -94,13 +80,13 @@ export default function Orphanage() {
                 />
                 <Marker
                   interactive={false}
-                  icon={happyMapIcon}
+                  icon={mapIcon}
                   position={[-27.2092052, -49.6401092]}
                 />
               </Map>
 
               <footer>
-                <a href="">Ver rotas no Google Maps</a>
+                <a href="/">Ver rotas no Google Maps</a>
               </footer>
             </div>
 

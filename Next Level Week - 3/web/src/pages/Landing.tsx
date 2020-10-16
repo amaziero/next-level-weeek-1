@@ -1,5 +1,4 @@
 import React from 'react';
-
 import '../styles/pages/landing.css';
 import logo from '../images/Logo.svg';
 import { FiArrowRight } from 'react-icons/fi';
