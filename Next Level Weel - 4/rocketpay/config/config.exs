@@ -7,6 +7,12 @@
 # General application configuration
 use Mix.Config
 
+config :rocketpay, Rocketpay.Repo,
+  database: "rocketpay_repo",
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost"
+
 config :rocketpay,
   ecto_repos: [Rocketpay.Repo]
 
