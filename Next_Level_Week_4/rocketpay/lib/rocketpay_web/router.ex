@@ -1,6 +1,8 @@
 defmodule RocketpayWeb.Router do
   use RocketpayWeb, :router
 
+  # alias RocketpayWeb.UsersController
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -9,6 +11,8 @@ defmodule RocketpayWeb.Router do
     pipe_through :api
 
     get "/:filename", WelcomeController, :index
+
+    post "/users", UsersController, :create
   end
 
   # Enables LiveDashboard only for development
