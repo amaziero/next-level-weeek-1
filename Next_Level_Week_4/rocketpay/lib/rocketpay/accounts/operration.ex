@@ -40,13 +40,4 @@ defmodule Rocketpay.Accounts.Operation do
     |> Account.changeset(params)
     |> repo.update()
   end
-
-  # defp udpate_account({:error, _reason} = error, _repo, _account), do: error
-
-  # defp run_transaction(multi) do
-  #   case Repo.transaction(multi) do
-  #     {:error, _operation, reason, _changes} -> {:error, reason}
-  #     {:ok, %{update_balance: account}} -> {:ok, account}
-  #   end
-  # end
 end
