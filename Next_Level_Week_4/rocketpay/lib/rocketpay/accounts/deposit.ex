@@ -11,7 +11,7 @@ defmodule Rocketpay.Accounts.Deposit do
   defp run_transaction(result) do
     case Repo.transaction(result) do
       {:error, _operation, reason, _changes} -> {:error, reason}
-      {:ok, %{account_deposit: account}} -> {:ok, account}
+      {:ok, %{deposit: account}} -> {:ok, account}
     end
   end
 end
