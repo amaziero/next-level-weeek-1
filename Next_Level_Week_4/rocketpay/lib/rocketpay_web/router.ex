@@ -22,7 +22,7 @@ defmodule RocketpayWeb.Router do
   end
 
   scope "/api", RocketpayWeb do
-    pipe_through [:api, :basic_auth]
+    pipe_through [:api, :auth]
 
     post "/accounts/:id/deposit", AccountsController, :deposit
 
