@@ -1,5 +1,5 @@
 defmodule RocketpayWeb.WelcomeControllerTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
 
   alias Rocketpay.Numbers
 

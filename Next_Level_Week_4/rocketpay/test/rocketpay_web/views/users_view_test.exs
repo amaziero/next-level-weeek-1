@@ -25,7 +25,7 @@ defmodule RocketpayWeb.UsersViewTest do
       message: "User created",
       user: %{
         account: %{
-          balance: Decimal.new("0.000"),
+          balance: Decimal.new("0.00"),
           id: account_id
         },
         id: user_id,
